@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   #added to config devise gem
-  root to: "home#index"
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
 end
