@@ -24,9 +24,10 @@ Metrics/AbcSize:
   Max: 50
 Metrics/ClassLength:
   Max: 150
-Metrics/BlockLength:
-  IgnoredMethods: ['describe']
-  Max: 30
+### Commented beacuse of deprecated https://github.com/rubocop/rubocop/blob/master/spec/rubocop/config_obsoletion_spec.rb
+#Metrics/BlockLength:
+#IgnoredMethods: ['describe']
+#Max: 30
 
 Style/Documentation:
   Enabled: false
