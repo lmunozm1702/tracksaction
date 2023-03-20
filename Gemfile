@@ -81,6 +81,6 @@ end
 
 # Project added gems
 gem 'bootstrap', '~> 5.2.0'
+gem 'cancancan'
+gem 'devise'
 gem 'rubocop', '>= 1.0', '< 2.0'
-gem 'cancancan'gem 'devise'
-
