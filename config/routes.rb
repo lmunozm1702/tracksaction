@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   #devise_scope :user do
   #  root to: "devise/sessions#new"
   #end
+  authenticated :user do
+    root 'groups#index', as: :authenticated_root
+  end
   root 'static_pages#home'
 end
