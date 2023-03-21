@@ -3,7 +3,7 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.all.reverse
+    @groups = Group.where(user_id: current_user.id).includes(:user).reverse
   end
 
   # GET /groups/1 or /groups/1.json
