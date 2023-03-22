@@ -1,4 +1,5 @@
 <p style="color: green"><%= notice %></p>
+<div><%= @group.payments.sum(:amount)%></div>
 <% @group.payments.reverse.each do |payment| %>
   <div class="my-3">
     <div><%= payment.name %></div>
