@@ -10,7 +10,7 @@
     </div>
     <div>
       <strong>Total TRXN for this group:</strong>
-      <%= "total trxn" %>
+      <%= group.payments.sum(:amount) %>
     </div>
   </div>
 <% end %>
