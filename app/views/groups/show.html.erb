@@ -1,5 +1,5 @@
 <p style="color: green"><%= notice %></p>
-<% @group.payments.each do |payment| %>
+<% @group.payments.reverse.each do |payment| %>
   <div class="my-3">
     <div><%= payment.name %></div>
     <div><%= payment.amount %></div>
