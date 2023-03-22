@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+<% @group.payments.each do |payment| %>
+  <div class="my-3">
+    <div><%= payment.name %></div>
+    <div><%= payment.amount %></div>
+  <% end %>
+</div>
+<div>
+  <%= link_to "Edit this group", edit_group_path(@group) %> |
+  <%= link_to "Back to groups", groups_path %>
+  <%= button_to "Destroy this group", @group, method: :delete %>
+</div>
