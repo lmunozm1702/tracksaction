@@ -6,4 +6,7 @@ class Payment < ApplicationRecord
 
   accepts_nested_attributes_for :grouped_payments,
                                 allow_destroy: true
+
+  validates :amount, presence: true, numericality: { only_integer: true }
+  validates :name, presence: true
 end
