@@ -2,5 +2,9 @@
 <%= render "form", payment: @payment %>
 <br>
 <div>
-  <%= link_to "Back to payments", group_path(params[:format]) %>
+  <% if params[:format] %>
+    <%= link_to "Back to payments", group_path(params[:format]) %>
+  <% else %>
+    <%= link_to "Back to payments", groups_path() %>
+  <% end%>
 </div>
