@@ -21,14 +21,12 @@ class PaymentsController < ApplicationController
   def create
     @payment = Payment.new(payment_params)
     @payment.author_id = current_user.id
-    @grouped_payment = GroupedPayment.new
+
     respond_to do |format|
       if @payment.save
-        @group = Group.find(group_params[:group_id])
-        @grouped_payment.group = @group
-        @grouped_payment.payment = @payment
-        @grouped_payment.save
-        format.html { redirect_to group_url(@group), notice: 'Payment was successfully created.' }
+        @last_group = create_grouped_payment(@payment, params.require(:group_id))
+
+        format.html { redirect_to group_path(@last_group), notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -70,10 +68,13 @@ class PaymentsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def payment_params
     params.require(:payment).permit(:name, :amount)
-    # params.require(:grouped_payment).permit(:group_id)
   end
 
-  def group_params
-    params.require(:group).permit(:group_id)
+  def create_grouped_payment(payment, group_list)
+    group_list.each do |group_id|
+      @group = Group.find(group_id)
+      GroupedPayment.create(payment:, group: @group)
+    end
+    @group
   end
 end
