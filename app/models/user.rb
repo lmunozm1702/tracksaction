@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
 
-  validates :name, presence: true, allow_blank: false
+  validates :full_name, presence: true, allow_blank: false
   validates :email, presence: true, allow_blank: false
   validates :password, presence: true, allow_blank: false
 end
