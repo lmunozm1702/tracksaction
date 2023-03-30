@@ -6,6 +6,11 @@
       <%= f.submit "Log in", class:"btn text-light btn-sm" %>
     </div>
   </div>
+  <% if flash[:alert] || flash[:notice] %>
+    <div class="container mt-3">
+      <%= render partial: 'layouts/flash', flash: flash %>
+    </div>
+  <% end %>
   <div class="field p-2">
     <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, placeholder: :email, class: 'form-control border-0 border-bottom rounded-0' %>
   </div>
