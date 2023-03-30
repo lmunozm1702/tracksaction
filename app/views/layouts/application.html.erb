@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
+  <body class="bg-light">
     <%= render partial: 'layouts/navbar' %>
     <% if !flash[:alert] && !flash[:notice] %>
       <div class="container">
