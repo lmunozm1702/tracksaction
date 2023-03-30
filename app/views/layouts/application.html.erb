@@ -8,13 +8,13 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
+  <body class="bg-light">
     <%= render partial: 'layouts/navbar' %>
-    <div class="container p-4">
-      <% #Added to use devise gem %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
-    </div>
+    <% if !flash[:alert] && !flash[:notice] %>
+      <div class="container">
+        <%= render partial: 'layouts/flash', flash: flash %>
+      </div>
+    <% end %>
+    <%= yield %>
   </body>
 </html>

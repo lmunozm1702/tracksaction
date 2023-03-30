@@ -1,23 +1,23 @@
-<p style="color: green"><%= notice %></p>
-<h1>Groups</h1>
+<div class="d-flex flex-fill bg-primary justify-content-center align-items-center text-light p-2">
+  <div class="text-center flex-grow-1">CATEGORIES</div>
+  <div class="text-center">
+    <small><%= link_to "New", new_group_path, class: 'text-decoration-none text-white' %></small>
+  </div>
+</div>
 <div id="groups">
   <% @groups.each do |group| %>
-    <%= link_to(group) do %>
-      <div class="my-3" id="<%= dom_id group %>">
+    <%= link_to(group, class:"text-decoration-none") do %>
+      <div class="m-3 bg-white d-flex gap-3 p-2" id="<%= dom_id group %>">
         <div>
-          <strong>Name:</strong>
-          <%= group.name %>
+          <%= image_tag group.icon, size: '50x50' %>
         </div>
-        <div>
-          <strong>Icon:</strong>
-          <%= group.icon %>
+        <div class="text-muted flex-grow-1">
+          <small class="text-decoration-none"><%= group.name %></small>
         </div>
-        <div>
-          <strong>Total TRXN for this group:</strong>
-          <%= group.payments.sum(:amount) %>
+        <div class="text-black fw-bold">
+          <%= number_to_currency(group.payments.sum(:amount)) %>
         </div>
       </div>
     <% end %>
   <% end %>
 </div>
-<%= link_to "New group", new_group_path %>
