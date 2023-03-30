@@ -1,7 +1,7 @@
 <div class="d-flex flex-fill bg-primary justify-content-center align-items-center text-light p-2">
   <div class="text-center flex-grow-1">CATEGORIES</div>
   <div class="text-center">
-    <%= link_to "New", new_group_path, class: 'text-decoration-none text-white' %>
+    <small><%= link_to "New", new_group_path, class: 'text-decoration-none text-white' %></small>
   </div>
 </div>
 <div id="groups">
@@ -14,7 +14,7 @@
         <div class="text-muted flex-grow-1">
           <small class="text-decoration-none"><%= group.name %></small>
         </div>
-        <div class="text-black">
+        <div class="text-black fw-bold">
           <%= number_to_currency(group.payments.sum(:amount)) %>
         </div>
       </div>
