@@ -134,6 +134,8 @@ If you like this project please give it a star 😁🌟✨
 
 Microverse.
 
+The [Creative Commons license of the design](https://creativecommons.org/licenses/by-nc/4.0/), because I'm using these [design guidelines](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)..
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 License <a name="license"></a>
