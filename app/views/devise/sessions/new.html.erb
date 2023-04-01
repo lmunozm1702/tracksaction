@@ -1,0 +1,23 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="d-flex flex-fill bg-primary justify-content-between align-items-center text-light p-2">
+    <div><%= link_to "\<", :back, class:"btn text-light btn-sm" %></div>
+    <div>LOGIN</div>
+    <div>
+      <%= f.submit "Log in", class:"btn text-light btn-sm" %>
+    </div>
+  </div>
+  <% if flash[:alert] || flash[:notice] %>
+    <div class="container mt-3">
+      <%= render partial: 'layouts/flash', flash: flash %>
+    </div>
+  <% end %>
+  <div class="field p-2">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, placeholder: :email, class: 'form-control border-0 border-bottom rounded-0' %>
+  </div>
+  <div class="field p-2">
+    <%= f.password_field :password, autocomplete: "current-password",required: true, placeholder: :password, class: 'form-control border-0 border-bottom rounded-0' %>
+  </div>
+<% end %>
+<div class="text-center mt-3">
+  <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'text-muted text-decoration-none' %>
+</div>

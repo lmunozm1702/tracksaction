@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <div class="d-flex justify-content-between">
+    <div>
+      <small><%= link_to "New Category", new_group_path %></small>
+    </div>
+    <div>
+      <small><%= link_to "New Payment", new_payment_path %></small>
+    </div>
+    <div class="text-end mb-2">
+      <small class="text-muted"><%=current_user.email%></small> <%= button_to "logout", destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary btn-sm' %>
+    </div>
+  </div>
+<% end %>
